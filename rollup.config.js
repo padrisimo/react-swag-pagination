@@ -10,6 +10,7 @@ import pkg from './package.json'
 
 export default {
   input: 'src/index.js',
+  external: ['styled-components', 'antd'],
   output: [
     {
       file: pkg.main,
@@ -23,7 +24,7 @@ export default {
     }
   ],
   plugins: [
-    external(),
+    external(pkg),
     postcss({
       modules: true
     }),
@@ -31,7 +32,7 @@ export default {
     svgr(),
     babel({
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: ['external-helpers']
     }),
     resolve(),
     commonjs()

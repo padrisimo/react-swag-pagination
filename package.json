@@ -57,5 +57,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "antd": "^3.13.2",
+    "styled-components": "^4.1.3",
+    "typeface-roboto": "^0.0.54"
+  }
 }

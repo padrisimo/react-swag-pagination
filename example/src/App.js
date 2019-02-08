@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'react-swag-pagination'
+import { Pagination } from 'react-swag-pagination'
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Such a Cool Paginator' />
+        <Pagination />
       </div>
     )
   }
