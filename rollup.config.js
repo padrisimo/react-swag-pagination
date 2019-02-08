@@ -24,7 +24,7 @@ export default {
     }
   ],
   plugins: [
-    external(pkg),
+    external(),
     postcss({
       modules: true
     }),

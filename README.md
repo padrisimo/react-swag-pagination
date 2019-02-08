@@ -13,14 +13,19 @@ npm install --save react-swag-pagination
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import MyComponent from 'react-swag-pagination'
+import { Pagination, SimplePaginator } from 'react-swag-pagination';
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <Pagination 
+        steps={} 
+        defaulStep={} 
+        customFont={} 
+        customColor={} 
+      />
     )
   }
 }
