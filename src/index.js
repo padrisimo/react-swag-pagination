@@ -37,7 +37,7 @@ const ArrowsDisabled = styled.span`
 `;
 
 const Current = styled.span`
-	font-family: ${({font}) => font ? font : "Roboto"};
+	font-family: ${({font}) => font ? font : "'Roboto', sans-serif"};
 	font-size: 16px;
 	color: ${({color}) => color ? color : "#2196f3"};
 	margin: 0 6px;
@@ -49,7 +49,7 @@ const Current = styled.span`
 `;
 
 const Numbers = styled.span`
-	font-family: ${({font}) => font ? font : "Roboto"};
+	font-family: ${({font}) => font ? font : "'Roboto', sans-serif"};
 	font-size: 16px;
 	color: #717171;
 	margin: 0 6px;
