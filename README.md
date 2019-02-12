@@ -31,6 +31,7 @@ export default class App extends Component {
 
   nav = page => this.setState({page});
   next = () => this.setState({page: this.state.page + 1 });
+  back = () => this.setState({page: this.state.page - 1 });
   last = () => this.setState({ page: this.state.steps });
   first = () => this.setState({page: 1});
   
@@ -44,6 +45,7 @@ export default class App extends Component {
           defaultStep={page}
           callbackNav={this.nav}
           callbackNext={this.next}
+          callbackPrev={this.back}
           callbackLast={this.last}
           callbackFirst={this.first}
           font="sans-serif"
@@ -71,6 +73,7 @@ export default class App extends Component {
 
   nav = page => this.setState({page});
   next = () => this.setState({page: this.state.page + 1 });
+  back = () => this.setState({page: this.state.page - 1 });
   
   render() {
     const { steps, page } = this.state;
@@ -82,6 +85,7 @@ export default class App extends Component {
           defaultStep={page}
           callbackNav={this.nav}
           callbackNext={this.next}
+          callbackPrev={this.back}
           font="serif"
           color="indigo"
            />

@@ -44,7 +44,7 @@ export default class App extends Component {
           dangerouslySetInnerHTML={this.setIframe(SandboxCompact)}
           style={{ width: '1080px' }}
         />
-        <h2>SimplePagination Component</h2>
+        <h2 style={{paddingTop: '1em'}}>SimplePagination Component</h2>
         <div style={{padding: '0 0 3em  0'}}>Optionally you can use a slim paginator instead.</div>
         <div
           dangerouslySetInnerHTML={this.setIframe(SandboxSimple)}

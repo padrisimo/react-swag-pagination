@@ -9,6 +9,7 @@ export default class PaginationScreen extends Component {
 
   nav = page => this.setState({ page });
   next = () => this.setState({ page: this.state.page + 1 });
+  back = () => this.setState({page: this.state.page - 1 });
   last = () => this.setState({ page: this.state.steps });
   first = () => this.setState({ page: 1 });
 
