@@ -17,7 +17,7 @@ https://padrisimo.github.io/react-swag-pagination/
 
 ## Usage
 
-#### Paginator
+#### Pagination
 
 ```jsx
 import React, { Component } from 'react';
@@ -92,7 +92,7 @@ export default class App extends Component {
 
 ```
 
-## Pagination Props
+### Pagination Props
 
 | props         | type   | default                                     |
 |---------------|--------|---------------------------------------------|
@@ -106,7 +106,7 @@ export default class App extends Component {
 | color         | String | #2196f3                                     |
 | font          | String | Roboto                                      |
 
-## SimplePagination Props
+### SimplePagination Props
 
 | props        | type   | default                                     |
 |--------------|--------|---------------------------------------------|
