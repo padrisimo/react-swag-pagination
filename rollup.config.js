@@ -28,7 +28,10 @@ export default {
     postcss({
       modules: true
     }),
-    url(),
+    url({
+      include: ['**/*.woff', '**/*.woff2'],
+      limit: 'Infinity'
+    }),
     svgr(),
     babel({
       exclude: 'node_modules/**',
