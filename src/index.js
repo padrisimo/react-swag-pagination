@@ -20,10 +20,10 @@ const Arrows = styled.span`
 		color: ${({color}) => color ? color : "#2196f3"};
 	};
 	&:active {
-		color: #00a9f1;
+		color: ${({color}) => color ? color : "#2196f3"};
 	};
 	&:focus {
-		color: #00a9f1;
+		color: ${({color}) => color ? color : "#2196f3"};
 	}
 `;
 

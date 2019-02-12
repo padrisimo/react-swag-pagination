@@ -9,7 +9,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-live": "^1.12.0",
     "react-scripts": "^1.1.4",
     "react-swag-pagination": "link:..",
     "styled-components": "^4.1.3"

@@ -10,7 +10,7 @@ import pkg from './package.json'
 
 export default {
   input: 'src/index.js',
-  external: ['styled-components', 'antd'],
+  external: ['styled-components', 'antd', 'typeface-roboto'],
   output: [
     {
       file: pkg.main,
