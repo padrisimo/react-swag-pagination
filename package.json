@@ -2,9 +2,14 @@
   "name": "react-swag-pagination",
   "version": "1.0.2",
   "description": "such a cool paginator component",
-  "author": "padrisimo",
+  "author": "Adrián Fernández Chamizo a.k.a padrisimo",
+  "keywords": [
+    "react",
+    "pagination",
+    "react pagination"
+  ],
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/padrisimo/react-swag-pagination",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
