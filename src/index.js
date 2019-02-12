@@ -17,7 +17,7 @@ const Arrows = styled.span`
 	min-width: 24px;
 	margin: 12px;
 	&:hover {
-		color: #0096d6;
+		color: ${({color}) => color ? color : "#2196f3"};
 	};
 	&:active {
 		color: #00a9f1;
@@ -39,7 +39,7 @@ const ArrowsDisabled = styled.span`
 const Current = styled.span`
 	font-family: ${({font}) => font ? font : "Roboto"};
 	font-size: 16px;
-	color: #0a7cc1;
+	color: ${({color}) => color ? color : "#2196f3"};
 	margin: 0 6px;
 	display: inline-block;
 	min-width: 24px;
@@ -59,14 +59,14 @@ const Numbers = styled.span`
 	height: 24px;
 	text-align: center;
 	&:hover{
-		color: #0a7cc1;
+		color: ${({color}) => color ? color : "#2196f3"};
 	}
 `;
 
-const NumberSteps = ({ steps, current, callbackNav, font }) => (
+const NumberSteps = ({ steps, current, callbackNav, font, color }) => (
 	Array.apply(null, { length: steps }).map(Number.call, Number).map(step =>
 		<span key={step}>
-			{(current === step + 1) ? <Current font={font}> {step + 1} </Current> : <Numbers font={font} onClick={() => callbackNav(step + 1)}> {step + 1} </Numbers>}
+			{(current === step + 1) ? <Current color={color} font={font}> {step + 1} </Current> : <Numbers color={color} font={font} onClick={() => callbackNav(step + 1)}> {step + 1} </Numbers>}
 		</span>
 	)
 );
@@ -85,7 +85,7 @@ export class Pagination extends Component {
 	callbackNext: () => console.log('next page'),
 	callbackFirst: () => console.log('first page'),
 	callbackLast: () => console.log('last page'),
-	callbackNav: (page) => {console.log('go to page ', page)}
+	callbackNav: (page) => console.log('go to page ', page)
 }
 
 	setCurrentPage = page => {
@@ -118,40 +118,40 @@ export class Pagination extends Component {
 	}
 
 	render() {
-		const { steps, callbackNav, font } = this.props;
+		const { steps, callbackNav, font, color } = this.props;
 		const { current } = this.state;
 		return (
 			<Wrapper >
 
-				{steps > 6 && (current > 1 ? <Arrows onClick={this.goFirst}><Icon type="double-left" /></Arrows> : <ArrowsDisabled><Icon type="double-left" /></ArrowsDisabled>)}
+				{steps > 6 && (current > 1 ? <Arrows color={color} onClick={this.goFirst}><Icon type="double-left" /></Arrows> : <ArrowsDisabled><Icon type="double-left" /></ArrowsDisabled>)}
 
-				{current > 1 ? <Arrows onClick={this.goBack}><Icon type="left" /></Arrows> : <ArrowsDisabled><Icon type="left" /></ArrowsDisabled>}
+				{current > 1 ? <Arrows color={color} onClick={this.goBack}><Icon type="left" /></Arrows> : <ArrowsDisabled><Icon type="left" /></ArrowsDisabled>}
 
 				{steps < 7 ?
-					<Numbers font={font}>
+					<Numbers color={color} font={font}>
 						<NumberSteps font={font} steps={steps} current={current} callbackNav={this.setCurrentPage} />
 					</Numbers> :
 					<span>
 
-						{current > 1 && <Numbers font={font} onClick={this.goFirst}>{this.state.steps - this.state.steps + 1}</Numbers>}
-						{current > 4 && <Numbers font={font}>...</Numbers>}
-						{current === steps && <Numbers font={font} onClick={() => this.setCurrentPage(current - 4)}>{current - 4}</Numbers>}
-						{(current === steps || current === steps - 1) && <Numbers font={font} onClick={() => this.setCurrentPage(current - 3)}>{current - 3}</Numbers>}
-						{(current > 3 && current !== steps - 3) && <Numbers font={font} onClick={() => this.setCurrentPage(current - 2)}>{current - 2}</Numbers>}
-						{current > 2 && <Numbers font={font} onClick={() => this.setCurrentPage(current - 1)}>{current - 1}</Numbers>}
+						{current > 1 && <Numbers color={color} font={font} onClick={this.goFirst}>{this.state.steps - this.state.steps + 1}</Numbers>}
+						{current > 4 && <Numbers color={color} font={font}>...</Numbers>}
+						{current === steps && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current - 4)}>{current - 4}</Numbers>}
+						{(current === steps || current === steps - 1) && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current - 3)}>{current - 3}</Numbers>}
+						{(current > 3 && current !== steps - 3) && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current - 2)}>{current - 2}</Numbers>}
+						{current > 2 && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current - 1)}>{current - 1}</Numbers>}
 
-						<Current font={font}>{current}</Current>
+						<Current color={color} font={font}>{current}</Current>
 
-						{current < steps && <Numbers font={font} onClick={() => this.setCurrentPage(current + 1)}> {current + 1} </Numbers>}
+						{current < steps && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current + 1)}> {current + 1} </Numbers>}
 
-						{(current < steps - 1 && current !== 4) && <Numbers font={font} onClick={() => this.setCurrentPage(current + 2)}>{current + 2}</Numbers>}
+						{(current < steps - 1 && current !== 4) && <Numbers color={color} font={font} onClick={() => this.setCurrentPage(current + 2)}>{current + 2}</Numbers>}
 
-						{current < steps - 3 && <Numbers font={font}>...</Numbers>}
-						{current <= steps - 3 && <Numbers font={font} onClick={this.goLast}>{this.state.steps} </Numbers>}
+						{current < steps - 3 && <Numbers color={color} font={font}>...</Numbers>}
+						{current <= steps - 3 && <Numbers color={color} font={font} onClick={this.goLast}>{this.state.steps} </Numbers>}
 					</span>
 				}
-				{current < this.state.steps ? <Arrows onClick={this.goNext}><Icon type="right" /></Arrows> : <ArrowsDisabled><Icon type="right" /></ArrowsDisabled>}
-				{steps > 6 && (current < this.state.steps ? <Arrows onClick={this.goLast} ><Icon type="double-right" /></Arrows> : <ArrowsDisabled><Icon type="double-right" /></ArrowsDisabled>)}
+				{current < this.state.steps ? <Arrows color={color} onClick={this.goNext}><Icon type="right" /></Arrows> : <ArrowsDisabled><Icon type="right" /></ArrowsDisabled>}
+				{steps > 6 && (current < this.state.steps ? <Arrows color={color} onClick={this.goLast} ><Icon type="double-right" /></Arrows> : <ArrowsDisabled><Icon type="double-right" /></ArrowsDisabled>)}
 			</Wrapper>
 		);
 	}
@@ -181,7 +181,7 @@ export class SimplePagination extends Component {
 	}
 
 	render() {
-		const { steps, font } = this.props;
+		const { steps, font, color } = this.props;
 		const { current } = this.state;
 		return (
 			<Wrapper>
@@ -194,13 +194,13 @@ export class SimplePagination extends Component {
 						<Icon type="left" />
 					</ArrowsDisabled>}
 				<span>
-					<Current font={font}>
+					<Current color={color} font={font}>
 						{current}
 					</Current>
-					{<Numbers font={font}>/</Numbers>}
-					{<Numbers font={font} onClick={() => this.setCurrentPage(steps)}>{steps}</Numbers>}
+					{<Numbers color={color} font={font}>/</Numbers>}
+					{<Numbers color={color} font={font} onClick={() => this.setCurrentPage(steps)}>{steps}</Numbers>}
 				</span>
-				{current < steps ? <Arrows onClick={this.goNext}><Icon type="right" /></Arrows> : <ArrowsDisabled><Icon type="right" /></ArrowsDisabled>}
+				{current < steps ? <Arrows color={color} onClick={this.goNext}><Icon type="right" /></Arrows> : <ArrowsDisabled><Icon type="right" /></ArrowsDisabled>}
 			</Wrapper>
 		);
 	}
